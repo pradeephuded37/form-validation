@@ -1,0 +1,59 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form demo</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.app/css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.app/css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.app/css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.app/css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.app/css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
+</head>
+<body>
+
+    <div class="alert alert-primary" role="alert">
+        FILL THE FORM
+      </div>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-4">
+                {{form.name|as_crispy_field}}
+            </div>
+            <div class="col-4">
+                {{form.last_name|as_crispy_field}}
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{form.email|as_crispy_field}}
+            </div>
+            <div class="col-4">
+                {{form.confirm_email|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{form.pwd|as_crispy_field}}
+            </div>
+            <div class="col-4">
+                {{form.pic|as_crispy_field}}
+            </div>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+</body>
+</html>
